@@ -42,7 +42,15 @@ const FooterSection = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("/api", {
+      const scriptId =
+        "AKfycbwZ3lUzOAtsBEC_xhaCEvkDIUrbnOh9iv7ILMxCDXMH3RCd0TcsFYTk7jD8dwiJkfyqcg";
+
+      const baseUrl =
+        import.meta.env.MODE === "development"
+          ? "/api"
+          : `https://script.google.com/macros/s/${scriptId}/exec`;
+
+      const res = await fetch(baseUrl, {
         method: "POST",
         body: JSON.stringify(formData),
         headers: {
@@ -77,7 +85,6 @@ const FooterSection = () => {
 
   return (
     <footer className="bg-gradient-to-br from-forest-900 via-forest-800 to-forest-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-white rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-sunset-400 rounded-full blur-3xl"></div>
@@ -85,7 +92,6 @@ const FooterSection = () => {
 
       <div className="container mx-auto px-6 py-20 relative z-10">
         <div className="max-w-6xl mx-auto">
-          {/* Contact & Feedback Section */}
           <div className="grid lg:grid-cols-2 gap-12 mb-16">
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 animate-fade-in">
               <CardHeader>
@@ -135,7 +141,6 @@ const FooterSection = () => {
             </Card>
           </div>
 
-          {/* Bottom Section */}
           <div className="border-t border-white/20 pt-4">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <div className="text-forest-200 text-sm">

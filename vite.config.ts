@@ -1,8 +1,8 @@
+// vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-
 
 const scriptId =
   "AKfycbwZ3lUzOAtsBEC_xhaCEvkDIUrbnOh9iv7ILMxCDXMH3RCd0TcsFYTk7jD8dwiJkfyqcg";
